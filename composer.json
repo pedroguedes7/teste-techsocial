@@ -1,0 +1,12 @@
+{
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "require": {
+        "phpunit/phpunit": "^10.0",
+        "doctrine/orm": "^2.10",
+        "twbs/bootstrap": "^5.0"
+    }
+}
