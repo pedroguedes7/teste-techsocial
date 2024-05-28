@@ -1,12 +1,28 @@
 # Use a imagem oficial do PHP com Apache
 FROM php:8.2-apache
 
-# Instalar dependências necessárias para o Composer
+# Instalar dependências necessárias para o Composer e extensões do PHP
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
         git \
         unzip \
-        curl
+        curl \
+        libpng-dev \
+        libjpeg-dev \
+        libfreetype6-dev \
+        libonig-dev \
+        libxml2-dev \
+        zip \
+        && docker-php-ext-configure gd --with-freetype --with-jpeg \
+        && docker-php-ext-install gd \
+        && docker-php-ext-install mbstring \
+        && docker-php-ext-install exif \
+        && docker-php-ext-install pcntl \
+        && docker-php-ext-install bcmath \
+        && docker-php-ext-install opcache \
+        && docker-php-ext-install intl \
+        && docker-php-ext-install pdo_mysql \
+        && docker-php-ext-enable pdo_mysql
 
 # Instalar o Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer

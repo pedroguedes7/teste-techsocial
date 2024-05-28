@@ -6,7 +6,11 @@
     },
     "require": {
         "phpunit/phpunit": "^10.0",
-        "doctrine/orm": "^2.10",
-        "twbs/bootstrap": "^5.0"
+        "doctrine/migrations": "^3.0",
+        "doctrine/cache": "^1.11",
+        "symfony/yaml": "^5.2",
+        "doctrine/orm": "^3",
+        "doctrine/dbal": "^4",
+        "symfony/cache": "^7"
     }
 }
